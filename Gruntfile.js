@@ -48,7 +48,7 @@ module.exports = function(grunt) {
             vendor: ['jquery', 'underscore', 'backbone', 'kdbxweb', 'baron', 'pikaday', 'filesaver', 'qrcode',
                 'argon2-asm', 'argon2-wasm', 'argon2']
         },
-        output: {
+         output: {
             path: path.resolve('.', 'tmp/js'),
             filename: 'app.js'
         },
@@ -83,12 +83,12 @@ module.exports = function(grunt) {
                 { test: /\.hbs$/, loader: StringReplacePlugin.replace('handlebars-loader', { replacements: [{
                     pattern: /\r?\n\s*/g,
                     replacement: function() { return '\n'; }
-                }]})},
+                }] }) },
                 { test: /runtime-info\.js$/, loader: StringReplacePlugin.replace({ replacements: [
                     { pattern: /@@VERSION/g, replacement: function() { return pkg.version; } },
                     { pattern: /@@DATE/g, replacement: function() { return dt; } },
                     { pattern: /@@COMMIT/g, replacement: function() { return grunt.config.get('gitinfo.local.branch.current.shortSHA'); } }
-                ]})},
+                ] }) },
                 { test: /baron(\.min)?\.js$/, loader: 'exports-loader?baron; delete window.baron;' },
                 { test: /pikaday\.js$/, loader: 'uglify-loader' },
                 { test: /handlebars/, loader: 'strip-sourcemap-loader' },
@@ -256,7 +256,7 @@ module.exports = function(grunt) {
             options: {
                 processors: [
                     replaceFont,
-                    require('cssnano')({discardComments: {removeAll: true}})
+                    require('cssnano')({ discardComments: { removeAll: true } })
                 ]
             },
             dist: {
@@ -301,7 +301,7 @@ module.exports = function(grunt) {
             },
             'desktop-public-key': {
                 options: { replacements: [{ pattern: '\'PUBLIC_KEY_CONTENT\'', replacement:
-                    '`' + fs.readFileSync('app/resources/public-key.pem', {encoding: 'utf8'}).trim() + '`' }] },
+                    '`' + fs.readFileSync('app/resources/public-key.pem', { encoding: 'utf8' }).trim() + '`' }] },
                 files: { 'tmp/desktop/app/main.js': 'desktop/main.js' }
             },
             'cordova-html': {
