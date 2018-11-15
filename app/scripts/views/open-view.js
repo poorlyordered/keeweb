@@ -148,8 +148,8 @@ const OpenView = Backbone.View.extend({
             body: Locale.openLocalFileBody,
             icon: 'file-text',
             buttons: [
-                {result: 'skip', title: Locale.openLocalFileDontShow, error: true},
-                {result: 'ok', title: Locale.alertOk}
+                { result: 'skip', title: Locale.openLocalFileDontShow, error: true },
+                { result: 'ok', title: Locale.alertOk }
             ],
             click: '',
             esc: '',
@@ -354,8 +354,8 @@ const OpenView = Backbone.View.extend({
                     header: Locale.openRemoveLastQuestion,
                     body: fileInfo.get('modified') ? Locale.openRemoveLastQuestionModBody : Locale.openRemoveLastQuestionBody,
                     buttons: [
-                        {result: 'yes', title: Locale.alertYes},
-                        {result: '', title: Locale.alertNo}
+                        { result: 'yes', title: Locale.alertYes },
+                        { result: '', title: Locale.alertNo }
                     ],
                     success: () => {
                         this.removeFile(id);
@@ -670,7 +670,7 @@ const OpenView = Backbone.View.extend({
                 header: Locale.openSelectFile,
                 body: Locale.openSelectFileBody,
                 icon: storage.icon || 'files-o',
-                buttons: [{result: '', title: Locale.alertCancel}],
+                buttons: [{ result: '', title: Locale.alertCancel }],
                 esc: '',
                 click: '',
                 view: listView
