@@ -140,7 +140,7 @@ const AppModel = Backbone.Model.extend({
         this._tagsChanged();
         this.menu.filesSection.addItem({
             icon: 'lock',
-            title: file.get('name'),
+             title: file.get('name'),
             page: 'file',
             file: file
         });
@@ -174,7 +174,7 @@ const AppModel = Backbone.Model.extend({
         if (this.tags.length) {
             this.menu.tagsSection.set('scrollable', true);
             this.menu.tagsSection.setItems(this.tags.map(tag => {
-                return {title: tag, icon: 'tag', filterKey: 'tag', filterValue: tag, editable: true};
+                return { title: tag, icon: 'tag', filterKey: 'tag', filterValue: tag, editable: true };
             }));
         } else {
             this.menu.tagsSection.set('scrollable', false);
