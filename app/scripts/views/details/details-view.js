@@ -207,7 +207,7 @@ const DetailsView = Backbone.View.extend({
         this.moreView = null;
         let newFieldTitle = Locale.detNetField;
         if (this.model.fields[newFieldTitle]) {
-            for (let i = 1; ; i++) {
+             for (let i = 1; ; i++) {
                 const newFieldTitleVariant = newFieldTitle + i;
                 if (!this.model.fields[newFieldTitleVariant]) {
                     newFieldTitle = newFieldTitleVariant;
@@ -237,21 +237,21 @@ const DetailsView = Backbone.View.extend({
                 if (hideEmptyFields) {
                     this.fieldViews.forEach(fieldView => {
                         if (fieldView.isHidden()) {
-                            moreOptions.push({value: 'add:' + fieldView.model.name, icon: 'pencil',
-                                text: Locale.detMenuAddField.replace('{}', fieldView.model.title)});
+                            moreOptions.push({ value: 'add:' + fieldView.model.name, icon: 'pencil',
+                                text: Locale.detMenuAddField.replace('{}', fieldView.model.title) });
                         }
                     }, this);
-                    moreOptions.push({value: 'add-new', icon: 'plus', text: Locale.detMenuAddNewField});
-                    moreOptions.push({value: 'toggle-empty', icon: 'eye', text: Locale.detMenuShowEmpty});
+                    moreOptions.push({value: 'add-new', icon: 'plus', text: Locale.detMenuAddNewField });
+                    moreOptions.push({value: 'toggle-empty', icon: 'eye', text: Locale.detMenuShowEmpty });
                 } else {
-                    moreOptions.push({value: 'add-new', icon: 'plus', text: Locale.detMenuAddNewField});
-                    moreOptions.push({value: 'toggle-empty', icon: 'eye-slash', text: Locale.detMenuHideEmpty});
+                    moreOptions.push({ value: 'add-new', icon: 'plus', text: Locale.detMenuAddNewField });
+                    moreOptions.push({ value: 'toggle-empty', icon: 'eye-slash', text: Locale.detMenuHideEmpty });
                 }
-                moreOptions.push({value: 'otp', icon: 'clock-o', text: Locale.detSetupOtp});
+                moreOptions.push({ value: 'otp', icon: 'clock-o', text: Locale.detSetupOtp });
                 if (AutoType.enabled) {
-                    moreOptions.push({value: 'auto-type', icon: 'keyboard-o', text: Locale.detAutoTypeSettings});
+                    moreOptions.push({ value: 'auto-type', icon: 'keyboard-o', text: Locale.detAutoTypeSettings });
                 }
-                moreOptions.push({value: 'clone', icon: 'clone', text: Locale.detClone});
+                moreOptions.push({ value: 'clone', icon: 'clone', text: Locale.detClone });
                 const rect = this.moreView.labelEl[0].getBoundingClientRect();
                 dropdownView.render({
                     position: {top: rect.bottom, left: rect.left},
@@ -376,7 +376,7 @@ const DetailsView = Backbone.View.extend({
             return;
         }
         const mimeType = attachment.mimeType || 'application/octet-stream';
-        const blob = new Blob([data], {type: mimeType});
+        const blob = new Blob([data], { type: mimeType });
         FileSaver.saveAs(blob, attachment.title);
     },
 
@@ -545,7 +545,7 @@ const DetailsView = Backbone.View.extend({
             : Locale.detFieldCopied;
         let tip;
         if (!this.isHidden()) {
-            tip = Tip.createTip(fieldLabel[0], {title: msg, placement: 'right', fast: true, force: true, noInit: true});
+            tip = Tip.createTip(fieldLabel[0], { title: msg, placement: 'right', fast: true, force: true, noInit: true });
             this.fieldCopyTip = tip;
             tip.show();
         }
@@ -818,7 +818,7 @@ const DetailsView = Backbone.View.extend({
             const fieldView = new FieldViewCustom({ model: {
                 name: '$otp', title: 'otp', newField: 'otp',
                 value: kdbxweb.ProtectedValue.fromString('')
-            }});
+            } });
             fieldView.on('change', this.fieldChanged.bind(this));
             fieldView.setElement(this.$el.find('.details__body-fields')).render();
             fieldView.edit();
