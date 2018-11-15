@@ -153,7 +153,7 @@ const AppModel = Backbone.Model.extend({
         this.menu.groupsSection.replaceByFile(file, file.get('groups').first());
         this.updateTags();
     },
-
+ 
     _addTags: function(file) {
         const tagsHash = {};
         this.tags.forEach(tag => {
@@ -174,7 +174,7 @@ const AppModel = Backbone.Model.extend({
         if (this.tags.length) {
             this.menu.tagsSection.set('scrollable', true);
             this.menu.tagsSection.setItems(this.tags.map(tag => {
-                return {title: tag, icon: 'tag', filterKey: 'tag', filterValue: tag, editable: true};
+                return {title: tag, icon: 'tag', filterKey: 'tag', filterValue: tag, editable: true };
             }));
         } else {
             this.menu.tagsSection.set('scrollable', false);
