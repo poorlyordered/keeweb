@@ -579,13 +579,13 @@ const AppView = Backbone.View.extend({
                 }
             } else {
                 if (menuItem) {
-                    this.model.menu.select({item: menuItem});
+                    this.model.menu.select({ item: menuItem });
                 }
             }
         } else {
             this.showSettings();
             if (menuItem) {
-                this.model.menu.select({item: menuItem});
+                this.model.menu.select({ item: menuItem });
             }
         }
     },
