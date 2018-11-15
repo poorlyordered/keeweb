@@ -346,9 +346,9 @@ const AppView = Backbone.View.extend({
                         header: Locale.appUnsavedWarn,
                         body: Locale.appUnsavedWarnBody,
                         buttons: [
-                            {result: 'save', title: Locale.saveChanges},
-                            {result: 'exit', title: Locale.discardChanges, error: true},
-                            {result: '', title: Locale.appDontExitBtn}
+                            { result: 'save', title: Locale.saveChanges },
+                            { result: 'exit', title: Locale.discardChanges, error: true },
+                            { result: '', title: Locale.appDontExitBtn }
                         ],
                         success: result => {
                             if (result === 'save') {
