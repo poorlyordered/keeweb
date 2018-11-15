@@ -230,7 +230,7 @@ const DetailsView = Backbone.View.extend({
         } else {
             this.setTimeout(function() {
                 const dropdownView = new DropdownView();
-                this.listenTo(dropdownView, 'cancel', this.toggleMoreOptions);
+                 this.listenTo(dropdownView, 'cancel', this.toggleMoreOptions);
                 this.listenTo(dropdownView, 'select', this.moreOptionsSelect);
                 const hideEmptyFields = AppSettingsModel.instance.get('hideEmptyFields');
                 const moreOptions = [];
@@ -241,8 +241,8 @@ const DetailsView = Backbone.View.extend({
                                 text: Locale.detMenuAddField.replace('{}', fieldView.model.title) });
                         }
                     }, this);
-                    moreOptions.push({value: 'add-new', icon: 'plus', text: Locale.detMenuAddNewField });
-                    moreOptions.push({value: 'toggle-empty', icon: 'eye', text: Locale.detMenuShowEmpty });
+                    moreOptions.push({ value: 'add-new', icon: 'plus', text: Locale.detMenuAddNewField });
+                    moreOptions.push({ value: 'toggle-empty', icon: 'eye', text: Locale.detMenuShowEmpty });
                 } else {
                     moreOptions.push({ value: 'add-new', icon: 'plus', text: Locale.detMenuAddNewField });
                     moreOptions.push({ value: 'toggle-empty', icon: 'eye-slash', text: Locale.detMenuHideEmpty });
@@ -254,7 +254,7 @@ const DetailsView = Backbone.View.extend({
                 moreOptions.push({ value: 'clone', icon: 'clone', text: Locale.detClone });
                 const rect = this.moreView.labelEl[0].getBoundingClientRect();
                 dropdownView.render({
-                    position: {top: rect.bottom, left: rect.left},
+                    position: { top: rect.bottom, left: rect.left },
                     options: moreOptions
                 });
                 this.views.dropdownView = dropdownView;
