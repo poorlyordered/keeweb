@@ -34,7 +34,7 @@ const EntryModel = Backbone.Model.extend({
 
     _fillByEntry: function() {
         const entry = this.entry;
-        this.set({id: this.file.subId(entry.uuid.id), uuid: entry.uuid.id}, {silent: true});
+        this.set({ id: this.file.subId(entry.uuid.id), uuid: entry.uuid.id }, { silent: true });
         this.fileName = this.file.get('name');
         this.groupName = this.group.get('title');
         this.title = this._getFieldString('Title');
@@ -157,7 +157,7 @@ const EntryModel = Backbone.Model.extend({
                 data = data.value;
             }
             if (data) {
-                att.push(AttachmentModel.fromAttachment({data: data, title: title}));
+                att.push(AttachmentModel.fromAttachment({ data: data, title: title }));
             }
         }, this);
         return att;
