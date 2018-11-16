@@ -179,7 +179,7 @@ const SettingsFileView = Backbone.View.extend({
         if (Launcher && !this.model.get('storage')) {
             Launcher.getSaveFileName(fileName, path => {
                 if (path) {
-                    this.save({storage: 'file', path: path});
+                    this.save({ storage: 'file', path: path });
                 }
             });
         } else {
@@ -201,7 +201,7 @@ const SettingsFileView = Backbone.View.extend({
                         }
                     });
                 } else {
-                    const blob = new Blob([data], {type: 'application/octet-stream'});
+                    const blob = new Blob([data], { type: 'application/octet-stream' );
                     FileSaver.saveAs(blob, fileName);
                 }
             });
@@ -210,7 +210,7 @@ const SettingsFileView = Backbone.View.extend({
 
     saveToXml: function() {
         this.model.getXml(xml => {
-            const blob = new Blob([xml], {type: 'text/xml'});
+            const blob = new Blob([xml], { type: 'text/xml' });
             FileSaver.saveAs(blob, this.model.get('name') + '.xml');
         });
     },
@@ -280,13 +280,13 @@ const SettingsFileView = Backbone.View.extend({
                             storage.remove(existingFile.path, err => {
                                 this.model.set('syncing', false);
                                 if (!err) {
-                                    this.save({storage: storageName});
+                                    this.save({ storage: storageName });
                                 }
                             });
                         }
                     });
                 } else {
-                    this.save({storage: storageName});
+                    this.save({ storage: storageName });
                 }
             });
         }
@@ -298,8 +298,8 @@ const SettingsFileView = Backbone.View.extend({
                 header: Locale.setFileUnsaved,
                 body: Locale.setFileUnsavedBody,
                 buttons: [
-                    {result: 'close', title: Locale.setFileCloseNoSave, error: true},
-                    {result: '', title: Locale.setFileDontClose}
+                    { result: 'close', title: Locale.setFileCloseNoSave, error: true },
+                    { result: '', title: Locale.setFileDontClose }
                 ],
                 success: result => {
                     if (result === 'close') {
@@ -337,7 +337,7 @@ const SettingsFileView = Backbone.View.extend({
 
     generateKeyFile: function() {
         const keyFile = this.model.generateAndSetKeyFile();
-        const blob = new Blob([keyFile], {type: 'application/octet-stream'});
+        const blob = new Blob([keyFile], { type: 'application/octet-stream' });
         FileSaver.saveAs(blob, this.model.get('name') + '.key');
         this.renderKeyFileSelect();
     },
